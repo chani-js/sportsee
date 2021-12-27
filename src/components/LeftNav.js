@@ -3,7 +3,7 @@ import dumbell from '../assets/icon-dumbell.svg';
 import bike from '../assets/icon-bike.svg';
 import meditation from '../assets/icon-meditation.svg';
 import swimming from '../assets/icon-swimming.svg';
-import styled from 'styled-components';// permet de faire du css dans un fichier Js 
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Nav = styled.nav`

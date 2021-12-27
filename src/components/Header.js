@@ -39,7 +39,7 @@ export default function Header() {
 			<Nav>
 				<NavLink to='#'>Accueil</NavLink>
 				<NavLink to='#'>Profil</NavLink>
-				<NavLink to='#'>Réglages</NavLink>
+				<NavLink to='#'>Réglage</NavLink>
 				<NavLink to='#'>Communauté</NavLink>
 			</Nav>
 		</CustomHeader>

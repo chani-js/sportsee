@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 /**
- * Gets user infosa partir de L'API
+ * Gets user infos from API
  *
  * @param {string} id User id
  * @returns {object} Response
@@ -20,7 +20,7 @@ export const getUserInfos = async (id) => {
 };
 
 /**
- * Gets user performance partir de L'API
+ * Gets user performance from API
  *
  * @param {string} id User id
  * @returns {object} Response
@@ -35,7 +35,7 @@ export const getUserPerformance = async (id) => {
 };
 
 /**
- * Gets user activity partir de L'API
+ * Gets user activity from API
  *
  * @param {string} id User id
  * @returns {object} Response
@@ -50,7 +50,7 @@ export const getUserActivity = async (id) => {
 };
 
 /**
- * Gets user average sessions partir de L'API
+ * Gets user average sessions from API
  *
  * @param {string} id User id
  * @returns {object} Response

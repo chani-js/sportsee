@@ -26,7 +26,7 @@ export default function PerformanceChart({ id }) {
 		const getData = async () => {
 			const request = await getUserPerformance(id);
 
-			// Formats the data and capitalizes the first letter of each kind
+			// Formats data and capitalizes the first letter of each kind
 			for (let i = 0, size = request.data.data.length; i < size; i++) {
 				request.data.data[i] = {
 					...request.data.data[i],
