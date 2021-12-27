@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
 	RadarChart,
 	PolarGrid,
@@ -20,12 +21,13 @@ const Container = styled.div`
 `;
 
 export default function PerformanceChart({ id }) {
+	const history = useHistory()
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
 		const getData = async () => {
 			const request = await getUserPerformance(id);
-
+			if (request.msg) return history.push ('/erreur404?msg='+request.msg);
 			// Formats data and capitalizes the first letter of each kind
 			for (let i = 0, size = request.data.data.length; i < size; i++) {
 				request.data.data[i] = {
@@ -41,7 +43,7 @@ export default function PerformanceChart({ id }) {
 			setData(request.data.data);
 		};
 		getData();
-	}, [id]);
+	}, [id,history]);
 
 	return (
 		<Container>

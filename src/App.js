@@ -16,6 +16,7 @@ function App() {
 					</Route>
 					<Route path='/user/:id' component={UserPage} />
 					<Route component={ErrorPage} />
+					
 				</Switch>
 			</BrowserRouter>
 		</div>

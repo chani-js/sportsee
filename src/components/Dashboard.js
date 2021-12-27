@@ -4,7 +4,7 @@ import caloriesIcon from '../assets/icon-calories.svg';
 import proteinsIcon from '../assets/icon-proteins.svg';
 import carbsIcon from '../assets/icon-carbs.svg';
 import lipidsIcon from '../assets/icon-lipids.svg';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { getUserInfos } from '../services/api';
@@ -72,6 +72,7 @@ const SmallChartsContainer = styled.div`
 `;
 
 export default function Dashboard({ match }) {
+	const history = useHistory()
 	const [data, setData] = useState([]);
 	const [score, setScore] = useState([]);
 
@@ -81,7 +82,7 @@ export default function Dashboard({ match }) {
 	useEffect(() => {
 		const getData = async () => {
 			const request = await getUserInfos(id);
-			if (!request) return <Redirect to='/404' />;
+			if (request.msg) return history.push ('/erreur404?msg='+request.msg);
 
 			setData(request.data);
 			setScore([
@@ -93,7 +94,7 @@ export default function Dashboard({ match }) {
 			]);
 		};
 		getData();
-	}, [id]);
+	}, [id,history]);
 
 	if (data.length === 0) return null;
 

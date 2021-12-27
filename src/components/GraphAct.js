@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import {
 	ResponsiveContainer,
@@ -58,11 +59,11 @@ const Legend = styled.div`
 
 export default function ActivityChart({ id }) {
 	const [data, setData] = useState([]);
-
+	const history = useHistory()
 	useEffect(() => {
 		const getData = async () => {
 			const request = await getUserActivity(id);
-
+			if (request.msg) return history.push ('/erreur404?msg='+request.msg);
 			// Formats the date on the XAxis
 			for (
 				let i = 0, length = request.data.sessions.length;
@@ -77,7 +78,7 @@ export default function ActivityChart({ id }) {
 			setData(request.data.sessions);
 		};
 		getData();
-	}, [id]);
+	}, [id,history]);
 
 	// Data for the domains
 	const kgArray = data.map((el) => el.kilogram);

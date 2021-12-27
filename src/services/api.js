@@ -4,6 +4,7 @@ const instance = axios.create({
 	baseURL: 'http://localhost:3000/user',
 });
 
+
 /**
  * Gets user infos from API
  *
@@ -16,6 +17,7 @@ export const getUserInfos = async (id) => {
 		return res.data;
 	} catch (e) {
 		console.log(e);
+		return {msg:JSON.stringify(e.message)}
 	}
 };
 
@@ -31,6 +33,7 @@ export const getUserPerformance = async (id) => {
 		return res.data;
 	} catch (e) {
 		console.log(e);
+		return e
 	}
 };
 

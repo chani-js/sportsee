@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
 	ResponsiveContainer,
 	LineChart,
@@ -35,11 +36,12 @@ const Title = styled.h2`
 
 export default function AverageSessionsChart({ id }) {
 	const [data, setData] = useState([]);
+	const history = useHistory()
 
 	useEffect(() => {
 		const getData = async () => {
 			const request = await getUserAverageSessions(id);
-
+			if (request.msg) return history.push ('/erreur404?msg='+request.msg);
 			// Formats data
 			const formatedData = request.data.sessions.map((session) => {
 				switch (session.day) {
@@ -65,7 +67,7 @@ export default function AverageSessionsChart({ id }) {
 			setData(formatedData);
 		};
 		getData();
-	}, [id]);
+	}, [id,history]);
 
 	// Data for the domain
 	const lengthArray = data.map((el) => el.sessionLength);
