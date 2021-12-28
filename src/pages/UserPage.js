@@ -12,7 +12,9 @@ const Container = styled.div`
 		grid-column: 1;
 	}
 	main {
-		grid-column: 2;
+		display:flex;
+		flex-direction:column;
+		padding:20px;
 	}
 `;
 

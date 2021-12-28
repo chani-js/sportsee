@@ -21,6 +21,8 @@ const Container = styled.main`
 		margin-top: 25px;
 		width: 90%;
 	}
+	
+}
 `;
 
 const Header = styled.header`
@@ -59,7 +61,7 @@ const ChartsContainer = styled.div`
 			margin-right: 0;
 		}
 		aside {
-			flex-direction: row;
+			flex-direction: column;
 			flex-wrap: wrap;
 			width: 835px;
 		}
@@ -67,8 +69,14 @@ const ChartsContainer = styled.div`
 `;
 
 const SmallChartsContainer = styled.div`
+	@media only screen and (min-width: 1023px) {
+		flex-direction:row;
+ }
 	display: flex;
 	justify-content: space-between;
+	flex-direction:column;
+	
+
 `;
 
 export default function Dashboard({ match }) {

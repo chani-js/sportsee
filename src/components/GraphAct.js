@@ -16,7 +16,11 @@ import { getUserActivity } from '../services/api';
 import ActivityChartTooltip from './GraphActTools';
 
 const Container = styled.div`
-	margin-bottom: 25px;
+@media only screen and (min-width: 1023px) {
+	width:93%;
+ }
+ 	width:50%;
+	margin-bottom: 100px;
 	height: 320px;
 	border-radius: 5px;
 	background-color: #fbfbfb;

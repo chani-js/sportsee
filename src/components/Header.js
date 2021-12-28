@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 
 const CustomHeader = styled.header`
 	display: flex;
-	width: 100%;
 	height: 91px;
 	background-color: black;
 	padding: 0 87px 0 29px;
