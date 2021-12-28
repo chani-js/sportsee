@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = styled.nav`
 	position: relative;
-	height: calc(100vh - 91px);
+	
 	background-color: black;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	@media (max-width: 1025px) {
